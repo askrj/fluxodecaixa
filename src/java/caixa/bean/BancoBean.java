@@ -16,10 +16,6 @@ public class BancoBean {
     private String nome;
     private String msg;
     
-    public void Ola(){
-        msg="Olá " + id + nome;
-    }
-    
     /**
      * @return the id
      */

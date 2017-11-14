@@ -4,11 +4,12 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Banco</title>
     </h:head>
     <h:body>
-        <h:form>
-            <p:panelGrid columns="6">
+        <h:form id="edicao">
+            <h:messages/>
+            <p:panelGrid columns="2">
                 <h:outputLabel value="Número"></h:outputLabel>
                 <h:inputText value="#{bancoBean.bancoselecionado.id}"></h:inputText>
                 
@@ -18,12 +19,11 @@
                 
                 </br>
                 
-                <p:commandButton value="Gravar" action="#{bancoBean.salvar(bancoselecionado)}"></p:commandButton>
-               
+                
+                <p:commandButton value="Gravar" action="#{bancoBean.salvar}"></p:commandButton>
                
             </p:panelGrid>
             
         </h:form>
     </h:body>
 </html>
-

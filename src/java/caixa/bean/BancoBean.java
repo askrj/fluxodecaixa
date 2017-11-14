@@ -5,57 +5,35 @@
  */
 package caixa.bean;
 
+import caixa.basica.Banco;
+import caixa.erro.GeralException;
+import caixa.rn.RNBanco;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
-@ManagedBean
+@ManagedBean(name="bancoBean")
 @SessionScoped
 public class BancoBean {
     //testando alteraçao de arquivo
-    private Integer id;
-    private String nome;
-    private String msg;
+    private Banco bancoselecionado = new Banco();
     
-    /**
-     * @return the id
-     */
-    public Integer getId() {
-        return id;
+    public void salvar() throws GeralException{
+        RNBanco rnbanco = new RNBanco();
+        rnbanco.inserirBanco(bancoselecionado);
+        FacesMessage faces = new FacesMessage("Banco cadastrado com sucesso!");
+        FacesContext contexto = FacesContext.getCurrentInstance();
+        contexto.addMessage(null, faces);
+        
     }
 
-    /**
-     * @param id the id to set
-     */
-    public void setId(Integer id) {
-        this.id = id;
+    public Banco getBancoselecionado() {
+        return bancoselecionado;
     }
 
-    /**
-     * @return the nome
-     */
-    public String getNome() {
-        return nome;
+    public void setBancoselecionado(Banco bancoselecionado) {
+        this.bancoselecionado = bancoselecionado;
     }
-
-    /**
-     * @param nome the nome to set
-     */
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    /**
-     * @return the msg
-     */
-    public String getMsg() {
-        return msg;
-    }
-
-    /**
-     * @param msg the msg to set
-     */
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
+   
 }

@@ -7,6 +7,7 @@ package caixa.bean;
 
 import caixa.basica.Banco;
 import caixa.erro.GeralException;
+import caixa.fachada.Fachada;
 import caixa.rn.RNBanco;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -20,8 +21,8 @@ public class BancoBean {
     private Banco bancoselecionado = new Banco();
     
     public void salvar() throws GeralException{
-        RNBanco rnbanco = new RNBanco();
-        rnbanco.inserirBanco(bancoselecionado);
+        Fachada fachada = Fachada.getInstancia();
+        fachada.salvarBanco(bancoselecionado);
         FacesMessage faces = new FacesMessage("Banco cadastrado com sucesso!");
         FacesContext contexto = FacesContext.getCurrentInstance();
         contexto.addMessage(null, faces);

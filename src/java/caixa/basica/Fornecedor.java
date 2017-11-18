@@ -41,11 +41,11 @@ public class Fornecedor{
         return "Fornecedor{" + "id=" + id + ", nome=" + nome + ", fantasia=" + fantasia + ", endere\u00e7o=" + endereco + ", bairro=" + bairro + ", cidade=" + cidade + ", uf=" + uf + ", cep=" + cep + ", cnpj=" + cnpj + ", cpf=" + cpf + ", inscricao=" + inscricao + ", rg=" + rg + ", telefone=" + telefone + ", celular=" + celular + ", email=" + email + ", observacao=" + observacao + ", tipo=" + tipo + '}';
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
